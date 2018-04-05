@@ -8,11 +8,13 @@ export default class Home extends React.Component {
 
     render() {
         return (
-            <div>
+
+          <div>
                 <p>
-                    Meshy Prediction Market 😛
+
+                Meshy Prediction Market 😛
                 </p>
-            </div>
-        );
+                </div>
+        )
     }
 }

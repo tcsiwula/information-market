@@ -13,9 +13,11 @@ import Account from './components/Account.jsx'
 {/* routes for the app */}
 ReactDOM.render((
   <Router history={hashHistory}>
+
     <Route path='/' component={App}>
       <IndexRoute component={Home} />
-      <Route path='/home' component={Home} />
+
+      <Route path="home" component={Home} />
       <Route path='/docs' component={Docs} />
       <Route path='/pricing' component={Pricing} />
       <Route path='/features' component={Features} />

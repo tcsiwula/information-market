@@ -16,14 +16,14 @@ export default class Header extends React.Component {
           <img src='happychainBlack.png' style={logoStyle}/>
           <Link to='/' style={{
               textDecoration: 'none',
-              color: 'black'
+              color: 'blue'
           }}>Meshy</Link>
       </logo>
 
       <rightNav style={navStyle}>
             <Link to='/features' style={{
                 textDecoration: 'none',
-                color: 'black'
+                color: 'red'
             }}activeStyle={{ color: 'red' }}>Markets</Link>
             <Link to='/pricing' style={{
                 textDecoration: 'none',
