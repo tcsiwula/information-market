@@ -9,8 +9,9 @@ export default class Features extends React.Component {
     render() {
         return (
             <div>
-                <p>Welcome to your
-                    <h1>Features</h1>.</p>
+                <p>
+                    Information Marketplace
+                </p>
             </div>
         );
     }

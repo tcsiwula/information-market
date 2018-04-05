@@ -9,8 +9,9 @@ export default class Account extends React.Component {
     render() {
         return (
             <div>
-                <p>Welcome to your
-                    <h1>Account</h1>.</p>
+                <p>
+                    You have 19.1435 ETH. Buy more now.
+                </p>
             </div>
         );
     }

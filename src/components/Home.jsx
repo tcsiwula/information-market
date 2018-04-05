@@ -9,8 +9,9 @@ export default class Home extends React.Component {
     render() {
         return (
             <div>
-                <p>Welcome to the
-                    <h1>Meshy Predictions</h1>.</p>
+                <p>
+                    Meshy Prediction Market 😛
+                </p>
             </div>
         );
     }

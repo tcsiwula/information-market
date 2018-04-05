@@ -9,8 +9,9 @@ export default class Docs extends React.Component {
     render() {
         return (
             <div>
-                <p>Welcome to your
-                    <h1>Docs</h1>.</p>
+                <p>
+                Main Network
+                </p>
             </div>
         );
     }

@@ -10,7 +10,7 @@ export default class Footer extends React.Component {
         return (
             <div>
                 <footer style={footerStyle}>
-                    Happy footer {/* {this.props.footerChildren} */}
+                    Short the fiat 😝 {/* {this.props.footerChildren} */}
                 </footer>
             </div>
         );
@@ -25,8 +25,8 @@ let footerStyle = {
     textDecoration: 'none',
     alignItems: 'centered',
     fontFamily: 'Raleway',
-    color: 'white',
-    background: 'black',
+    color: 'black',
+    background: 'darkGrey',
     fontSize: 20,
     position: 'absolute',
     bottom: 0,
