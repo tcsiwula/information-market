@@ -1,9 +1,9 @@
 import React from 'react'
 import { render } from 'react-dom'
 import { Router, Route, Link } from 'react-router'
-import Header from './Header.jsx'
-import Body from './Body.jsx'
-import Footer from './Footer.jsx'
+import Header from './components/Header.jsx'
+import Body from './components/Body.jsx'
+import Footer from './components/Footer.jsx'
 // import Web3 from 'web3'
 
 export default class App extends React.Component {

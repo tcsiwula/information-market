@@ -1,25 +1,25 @@
 import React from 'react'
-import {render} from 'react-dom'
-import ReactDOM from 'react-dom'
+import { ReactDOM, render } from 'react-dom'
 import {Route, IndexRoute, Router, browserHistory} from 'react-router'
+import { ApolloClient, createNetworkInterface, ApolloProvider } from 'react-apollo';
+import registerServiceWorker from './registerServiceWorker';
+import Routes from './routes';
+//import App from './App.jsx'
 
-import App from './components/App.jsx'
-import Home from './components/Home.jsx'
-import Docs from './components/Docs.jsx'
-import Pricing from './components/Pricing.jsx'
-import Features from './components/Features.jsx'
-import Account from './components/Account.jsx'
+const networkInterface = createNetworkInterface({
+  uri: 'http://0.0.0.0:3080/graphql'
+});
 
-{/* routes for the app */}
-ReactDOM.render((
-  <Router history={browserHistory}>
-    <Route path='/' component={App}>
-      <IndexRoute component={Home} />
-      <Route path="home" component={Home} />
-      <Route path='/docs' component={Docs} />
-      <Route path='/pricing' component={Pricing} />
-      <Route path='/features' component={Features} />
-      <Route path='/account' component={Account} />
-    </Route>
-  </Router>
-), document.getElementById('app'));
+const client = new ApolloClient({
+  networkInterface,
+});
+
+const App = (
+  <ApolloProvider client={client}>
+  <Routes />
+  </ApolloProvider>
+  )
+  ;
+
+ReactDOM.render(App, document.getElementById('root'));
+registerServiceWorker();
