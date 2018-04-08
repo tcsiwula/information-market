@@ -62,12 +62,15 @@ export default class Header extends React.Component {
     top : 0,
     left : 0,
     width : '100%',
-    height : 75
+    height : 75,
+    paddingLeft: 30,
+    paddingRight: 30
 }
     let logoStyle = {
     top : 0,
     alignItems : 'centered',
     margin : 5,
     height : 25,
-    width : 30
+    width : 30,
+    paddingRight: 5
 }

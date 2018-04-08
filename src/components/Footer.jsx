@@ -31,8 +31,8 @@ let footerStyle = {
     left: 0,
     width: '100%',
     margin: 0,
-    paddingLeft: 20,
-    paddingRight: 20,
+    paddingLeft: 50,
+    paddingRight: 50,
     paddingTop: 20,
     paddingBottom: 20
 }
