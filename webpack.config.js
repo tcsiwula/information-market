@@ -2,11 +2,10 @@ var webpack = require('webpack')
 var path = require('path')
 
 var config = {
-  entry: __dirname + '/src/index.jsx',
+  entry: path.join(__dirname, 'src', 'index.jsx'),
   output: {
-    path: __dirname + '/build',
-    filename: 'bundle.js',
-    publicPath: '/build'
+    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js'
   },
   devtool: 'source-map',
   devServer: {
