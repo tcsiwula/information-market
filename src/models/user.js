@@ -5,3 +5,27 @@
 //http://0.0.0.0:8080/graphiql?query=%7B%0A%20%20hi%0A%7D
 
 //http://0.0.0.0:3080/
+
+export default (sequelize, DataTypes) => {
+  const User = sequelize.define('user', {
+    username: {
+			type: DataTypes.STRING,
+			unique: true,
+		},
+		email: {
+			type: DataTypes.STRING,
+			unique: true,
+		},
+		password: {
+			type: DataTypes.STRING,
+    },
+  });
+
+  User.associate = (models) => {
+		User.belongsToMany(models.Team, {
+			through: 'member',
+			foreignKey: 'userId',
+		});
+	};
+  return User;
+};

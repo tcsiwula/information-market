@@ -1,0 +1,30 @@
+{
+  "development": {
+    "username": "infomarket",
+    "database": "infomarket",
+    "password": "DB_PASSWORD",
+    "host": "0.0.0.0",
+    "dialect": "postgres"
+  },
+	"staging": {
+    "username": "infomarket",
+    "password": "DB_PASSWORD",
+      "database": "infomarket",
+    "host": "13.57.73.45",
+    "dialect": "postgres"
+  },
+  "qa": {
+    "username": "qa",
+    "password": "DB_PASSWORD",
+      "database": "infomarket",
+    "host": "13.57.73.45",
+    "dialect": "postgres"
+  },
+	"production": {
+    "username": "infomarket",
+    "password": "DB_PASSWORD",
+      "database": "infomarket",
+    "host": "13.57.73.45",
+    "dialect": "postgres"
+  }
+}

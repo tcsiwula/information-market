@@ -1,21 +1,20 @@
-import Sequelize = from 'sequelize';
+import Sequelize from 'sequelize';
+const path = require('path');
+var env = process.env.NODE_ENV || 'development';
+const dir = (path.join(__dirname, "../../config.json"));
+const config = require(dir)[env];
 
-// var basename  = path.basename(__filename);
-// var env       = process.env.NODE_ENV || 'development';
-// var config    = require(__dirname + '/../config/config.js')[env];
-// var db        = {};
-
-var sequelize = new Sequelize('slack', 'postgres', 'postgres');
+const sequelize = new Sequelize(config.database, config.username, config.password, {
+     dialect: 'postgres'});
 
 const models = {
-     user: sequelize.import('./user'),
-     channel: sequelize.import('./channel'),
-     member: sequelize.import('./member'),
-     team: sequelize.import('./team'),
-     message: sequelize.import('./message'),
+     User: sequelize.import('./user'),
+     Channel: sequelize.import('./channel'),
+     Team: sequelize.import('./team'),
+     Message: sequelize.import('./message')
   };
 
-Object.keys(db).forEach(modelName => {
+Object.keys(models).forEach(modelName => {
   if ('associate' in models[modelName]) {
     models[modelName].associate(models);
   }
