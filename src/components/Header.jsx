@@ -23,7 +23,7 @@ export default class Header extends React.Component {
       <rightNav style={navStyle}>
             <Link to='/features' style={{
                 textDecoration: 'none',
-                color: 'red'
+                color: 'black'
             }}activeStyle={{ color: 'red' }}>Markets</Link>
             <Link to='/pricing' style={{
                 textDecoration: 'none',
