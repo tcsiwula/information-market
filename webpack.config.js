@@ -6,7 +6,7 @@ var config = {
   output: {
     path: __dirname + '/build',
     filename: 'bundle.js',
-    publicPath: __dirname + '/build'
+    publicPath: '/build'
   },
   devtool: 'source-map',
   devServer: {
@@ -25,5 +25,7 @@ var config = {
       }]
   }
 }
+
+console.log("#################### "+config.output.publicPath)
 
 module.exports = config

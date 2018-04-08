@@ -10,7 +10,7 @@ export default class Docs extends React.Component {
         return (
             <div>
                 <p>
-                Main Network
+                Main Network: Connected
                 </p>
             </div>
         );

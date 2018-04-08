@@ -8,27 +8,25 @@ export default class Footer extends React.Component {
 
     render() {
         return (
-            <div>
                 <footer style={footerStyle}>
                     Short the fiat 😝 {/* {this.props.footerChildren} */}
                 </footer>
-            </div>
         );
     }
 }
 
 let footerStyle = {
+    color: 'black',
+    background: 'darkGrey',
     display: 'flex',
-    minHeight: '10vh',
     flexDirection: 'column',
+    position: 'absolute',
     alignSelf: 'flex-end',
     textDecoration: 'none',
     alignItems: 'centered',
     fontFamily: 'Raleway',
-    color: 'black',
-    background: 'darkGrey',
+    minHeight: '10vh',
     fontSize: 20,
-    position: 'absolute',
     bottom: 0,
     left: 0,
     width: '100%',
