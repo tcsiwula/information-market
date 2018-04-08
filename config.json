@@ -4,6 +4,7 @@
     "database": "infomarket",
     "password": "DB_PASSWORD",
     "host": "0.0.0.0",
+    "port": "3333",
     "dialect": "postgres"
   },
 	"staging": {
@@ -11,6 +12,7 @@
     "password": "DB_PASSWORD",
       "database": "infomarket",
     "host": "13.57.73.45",
+    "port": "8888",
     "dialect": "postgres"
   },
   "qa": {
@@ -25,6 +27,7 @@
     "password": "DB_PASSWORD",
       "database": "infomarket",
     "host": "13.57.73.45",
+    "port": "3080",
     "dialect": "postgres"
   }
 }

@@ -4,12 +4,12 @@
   "description": "prediction market",
   "main": "server.js",
   "scripts": {
-    "dev": "webpack-dev-server --color",
+    "development": "NODE_ENV=development PORT=3333 nodemon --exec babel-node server.js",
+    "staging": "NODE_ENV=staging PORT=9999 forever --exec babel-node server.js",
+    "production": "NODE_ENV=production PORT=3080 forever start server.js",
     "start": "nodemon --exec babel-node server.js",
-    "server": "node server.js",
-    "clean": "rm -rf build && mkdir build",
-    "dev-server": "NODE_ENV=development nodemon server.js",
-    "debugger": "webpack --display-error-details"
+    "react-development": "webpack-dev-server --color",
+    "clean": "rm -rf build && mkdir build"
   },
   "dependencies": {
     "body-parser": "^1.18.2",
