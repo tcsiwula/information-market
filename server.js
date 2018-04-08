@@ -1,20 +1,52 @@
-// to start app run the following in separate terminals:
-// 1: geth --rpcapi eth,web3,personal --rpc
-// 2: node server
+const express = require('express');
+const bodyParser = require('body-parser');
+const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
+const { makeExecutableSchema } = require('graphql-tools');
 
-var express = require('express');
+// Some fake data
+const books = [
+  {
+    title: "Harry Potter and the Sorcerer's stone",
+    author: 'J.K. Rowling',
+  },
+  {
+    title: 'Jurassic Park',
+    author: 'Michael Crichton',
+  },
+];
 
-/* Create a new Web3 connections instance; did not work 12/30/16 BR*/
-//var web3 = web3();
+// // The GraphQL schema in string form
+// const typeDefs = `
+//   type Query { books: [Book] }
+//   type Book { title: String, author: String }
+// `;
+//
+// // The resolvers
+// const resolvers = {
+//   Query: { books: () => books },
+// };
 
-/* Create a new Express application instance */
-var app = express();
+import typeDefs from './schema';
+import resolvers from './resolvers';
 
-/* Use the Express application instance to listen to the '3000' port */
-app.listen(3000);
 
-/* Log the server status to the console */
-console.log('Happy block live on port http://localhost:3000!')
 
-/* Expose our application instance */
-module.exports = app;
+// Put together a schema
+const schema = makeExecutableSchema({
+  typeDefs,
+  resolvers,
+});
+
+// Initialize the app
+const app = express();
+
+// The GraphQL endpoint
+app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+
+// GraphiQL, a visual editor for queries
+app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
+
+// Start the server
+app.listen(8080, () => {
+  console.log('Go to http://0.0.0.0:8080/graphiql to run queries!');
+});
