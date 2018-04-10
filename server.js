@@ -1,14 +1,15 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const { graphqlExpress, graphiqlExpress } = require('apollo-server-express');
-const { makeExecutableSchema } = require('graphql-tools');
-import typeDefs from './schema';
-import resolvers from './resolvers';
+import express from 'express';
+import bodyParser from 'body-parser';
+import path from 'path';
 import models from './src/models';
-const path = require('path');
+import { graphqlExpress, graphiqlExpress } from 'apollo-server-express';
+import { makeExecutableSchema } from 'graphql-tools';
+import { fileLoader, mergeTypes, mergeResolvers } from 'merge-graphql-schemas';
 var env = process.env.NODE_ENV || 'development';
 const dir = (path.join(__dirname, "./config.json"));
 const config = require(dir)[env];
+const typeDefs = mergeTypes(fileLoader(path.join(__dirname, './src/schema')));
+const resolvers = mergeResolvers(fileLoader(path.join(__dirname, './src/resolvers')));
 // Put together a schema
 const schema = makeExecutableSchema({
 	typeDefs,
@@ -17,7 +18,15 @@ const schema = makeExecutableSchema({
 // Initialize the app
 const app = express();
 // The GraphQL endpoint
-app.use('/graphql', bodyParser.json(), graphqlExpress({ schema }));
+app.use('/graphql',
+	bodyParser.json(),
+	graphqlExpress({
+		schema,
+		context: {
+			models,
+		},
+	}),
+);
 // GraphiQL, a visual editor for queries
 app.use('/graphiql', graphiqlExpress({ endpointURL: '/graphql' }));
 // sync() will create all table if they doesn't exist in database
